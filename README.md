@@ -4,8 +4,7 @@
 
 ## Demo
 
-<img src="./docs/demo.gif" alt="Demo GIF" height="600" />
-
+<img src="./docs/demo.gif" alt="Demo GIF" height="700" />
 
 ## Features
 
@@ -25,45 +24,21 @@ $ yarn add react-native-material-chips
 
 ```typescript
 import React from 'react';
-import {Image, TouchableOpacity, StyleSheet, Alert} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {Chip} from 'react-native-material-chips';
 
 const App = () => {
   const onChipItemPress = () => {
-    Alert.alert('Alert', 'Item pressed!');
+    console.log('Item pressed!');
   };
-
-  const onRemoveIconPress = () => {
-    Alert.alert('Alert', 'Remove icon pressed!');
-  };
-
-  const renderLeadingIcon = () => (
-    <Image
-      source={{
-        uri: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
-      }}
-      style={styles.avatar}
-    />
-  );
-
-  const renderTrailingIcon = () => (
-    <TouchableOpacity onPress={onRemoveIconPress}>
-      <CloseIcon />
-    </TouchableOpacity>
-  );
-
-  const renderDisabledTrailingIcon = () => <DeleteIcon />;
 
   return (
     <>
-      <Chip
-        variant="outlined"
-        label="emily.johnson@gmail.com"
-        leadingIcon={renderLeadingIcon}
-        trailingIcon={renderTrailingIcon}
-        style={styles.chip}
-        onPress={onChipItemPress}
-      />
+        <Chip
+            label="What's on your mind?"
+            style={styles.chip}
+            onPress={onChipItemPress}
+        />
     </>
   );
 };
@@ -73,12 +48,7 @@ export default App;
 const styles = StyleSheet.create({
   chip: {
     alignSelf: 'flex-start',
-  },
-  avatar: {
-    width: 20,
-    height: 20,
-    borderRadius: 20,
-  },
+  }
 });
 
 ```
@@ -88,9 +58,6 @@ const styles = StyleSheet.create({
 ```typescript
 import React, {useState} from 'react';
 import {Chips} from 'react-native-material-chips';
-import {ChipsType} from 'react-native-material-chips/types';
-
-import Text from './common/Text';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -107,7 +74,7 @@ const App = () => {
     <>
       <Text variant="subtitle" content="Filter" />
       <Chips
-        type={ChipsType.Filter}
+        type="filter"
         itemVariant="outlined"
         items={items}
         setItems={setItems}
@@ -121,6 +88,8 @@ const App = () => {
 export default App;
 
 ```
+
+Note: For more examples, check out [example repository](https://github.com/sandipshiwakoti/react-native-material-chips-example).
 
 ## Props
 Here's a props table for both `Chip` and `Chips` components:
