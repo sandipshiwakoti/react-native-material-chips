@@ -2,6 +2,11 @@
 
 🔥Easily implement versatile and customizable chips inspired from material design🔥
 
+## Demo
+
+<img src="./docs/demo.gif" alt="Demo GIF" height="600" />
+
+
 ## Features
 
 - Supports chip types: default, filter, and input
@@ -14,6 +19,109 @@
 $ yarn add react-native-material-chips
 ```
 
+## Examples
+
+### Example of Chip
+
+```typescript
+import React from 'react';
+import {Image, TouchableOpacity, StyleSheet, Alert} from 'react-native';
+import {Chip} from 'react-native-material-chips';
+
+const App = () => {
+  const onChipItemPress = () => {
+    Alert.alert('Alert', 'Item pressed!');
+  };
+
+  const onRemoveIconPress = () => {
+    Alert.alert('Alert', 'Remove icon pressed!');
+  };
+
+  const renderLeadingIcon = () => (
+    <Image
+      source={{
+        uri: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+      }}
+      style={styles.avatar}
+    />
+  );
+
+  const renderTrailingIcon = () => (
+    <TouchableOpacity onPress={onRemoveIconPress}>
+      <CloseIcon />
+    </TouchableOpacity>
+  );
+
+  const renderDisabledTrailingIcon = () => <DeleteIcon />;
+
+  return (
+    <>
+      <Chip
+        variant="outlined"
+        label="emily.johnson@gmail.com"
+        leadingIcon={renderLeadingIcon}
+        trailingIcon={renderTrailingIcon}
+        style={styles.chip}
+        onPress={onChipItemPress}
+      />
+    </>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  chip: {
+    alignSelf: 'flex-start',
+  },
+  avatar: {
+    width: 20,
+    height: 20,
+    borderRadius: 20,
+  },
+});
+
+```
+
+### Example of Chips
+
+```typescript
+import React, {useState} from 'react';
+import {Chips} from 'react-native-material-chips';
+import {ChipsType} from 'react-native-material-chips/types';
+
+import Text from './common/Text';
+
+const App = () => {
+  const [items, setItems] = useState([
+    {label: 'Football', value: '1'},
+    {label: 'Cricket', value: '2'},
+    {label: 'Tennis', value: '3'},
+    {label: 'Table Tennis', value: '4'},
+    {label: 'Basketball', value: '5'},
+    {label: 'Swimming', value: '6'},
+  ]);
+  const [selectedValues, setSelectedValues] = useState(['1', '2']);
+
+  return (
+    <>
+      <Text variant="subtitle" content="Filter" />
+      <Chips
+        type={ChipsType.Filter}
+        itemVariant="outlined"
+        items={items}
+        setItems={setItems}
+        selectedValues={selectedValues}
+        setSelectedValues={setSelectedValues}
+      />
+    </>
+  );
+};
+
+export default App;
+
+```
+
 ## Props
 Here's a props table for both `Chip` and `Chips` components:
 
@@ -21,7 +129,7 @@ Here's a props table for both `Chip` and `Chips` components:
 
 | Prop                             | Type                                     | Description                                                         |
 | -------------------------------- | ---------------------------------------- | ------------------------------------------------------------------- |
-| `variant`                         | `ChipItemVariant` (Optional)             | Chip style variant: `'outlined'` or `'default'`. Default is `'default'`. |
+| `variant`                         | `ChipItemVariant` (Optional)             | Chip style variant: `'solid'`, `'outlined'` or `'disabled'`. Default is `'solid'`. |
 | `label`                           | `string`                                 | The text content of the chip.                                       |
 | `onPress`                         | `() => void` (Optional)                  | Callback function invoked when the chip is pressed.                 |
 | `leadingIcon`                     | `() => React.ReactElement \| null` (Optional) | Custom function returning a React element for the leading icon.      |
@@ -45,7 +153,7 @@ Here's a props table for both `Chip` and `Chips` components:
 | `selectedValues`                  | `string[]` (Optional)                   | An array of selected values (for Filter chips).                     |
 | `setSelectedValues`               | `React.Dispatch<React.SetStateAction<string[]>>` (Optional) | State setter function for updating selected values.    |
 | `type`                            | `ChipsType` (Optional)                   | Type of chips: `'default'`, `'filter'`, or `'input'`. Default is `'default'`. |
-| `itemVariant`                     | `ChipItemVariant` (Optional)             | Variant for chip items: `'outlined'` or `'default'`. Default is `'default'`. |
+| `itemVariant`                     | `ChipItemVariant` (Optional)             | Variant for chip items: `'solid'`, `'outlined'` or `'disabled'`. Default is `'solid'`. |
 
 
 
