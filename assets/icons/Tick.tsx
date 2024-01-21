@@ -1,5 +1,5 @@
-import * as React from 'react';
-import Svg, {Path, SvgProps} from 'react-native-svg';
+import * as React from "react";
+import Svg, { Path, SvgProps } from "react-native-svg";
 
 const Tick = (props: SvgProps | any) => {
   return (
@@ -8,7 +8,8 @@ const Tick = (props: SvgProps | any) => {
       viewBox="0 0 24 24"
       width={18}
       height={18}
-      {...props}>
+      {...props}
+    >
       <Path d="M20.293 5.293L9 16.586l-4.293-4.293-1.414 1.414L9 19.414 21.707 6.707l-1.414-1.414z" />
     </Svg>
   );

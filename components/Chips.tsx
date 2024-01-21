@@ -5,12 +5,12 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
-} from 'react-native';
-import React from 'react';
+} from "react-native";
+import React from "react";
 
-import Chip from './Chip';
-import {ChipsType, ChipItem, ChipItemVariant} from '../types';
-import {Close, Tick} from '../assets/icons';
+import Chip from "./Chip";
+import { ChipsType, ChipItem, ChipItemVariant } from "../types";
+import { Close, Tick } from "../assets/icons";
 
 interface ChipsProps {
   containerStyle?: StyleProp<ViewStyle>;
@@ -26,7 +26,7 @@ interface ChipsProps {
   itemVariant?: ChipItemVariant;
 }
 
-const Chips: React.FC<ChipsProps> = props => {
+const Chips: React.FC<ChipsProps> = (props) => {
   const {
     containerStyle,
     itemContainerStyle,
@@ -37,21 +37,21 @@ const Chips: React.FC<ChipsProps> = props => {
     setItems,
     selectedValues,
     setSelectedValues,
-    type = ChipsType.Default,
+    type = "default",
     itemVariant,
   } = props;
 
   const onSelectItem = (value: string) => {
-    if (type === ChipsType.Filter) {
+    if (type === "filter") {
       if (!selectedValues?.includes(value)) {
         setSelectedValues &&
           setSelectedValues([...(selectedValues || []), value]);
       } else {
         setSelectedValues &&
-          setSelectedValues(selectedValues?.filter(item => item !== value));
+          setSelectedValues(selectedValues?.filter((item) => item !== value));
       }
-    } else if (type === ChipsType.Input) {
-      setItems(items.filter(item => item.value !== value));
+    } else if (type === "input") {
+      setItems(items.filter((item) => item.value !== value));
     }
   };
 
@@ -79,17 +79,17 @@ const Chips: React.FC<ChipsProps> = props => {
           trailingIconContainerStyle={itemTrailingIconContainerStyle}
           label={item.label}
           leadingIcon={
-            type === ChipsType.Filter
+            type === "filter"
               ? () => renderFilterLeadingIcon(item.value)
               : undefined
           }
           trailingIcon={
-            type === ChipsType.Input
+            type === "input"
               ? () => renderInputTrailingIcon(item.value)
               : undefined
           }
           onPress={
-            type === ChipsType.Filter || type === ChipsType.Input
+            type === "filter" || type === "input"
               ? () => onSelectItem(item.value)
               : undefined
           }
@@ -103,9 +103,9 @@ export default Chips;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
 });

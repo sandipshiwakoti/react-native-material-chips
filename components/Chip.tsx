@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleProp,
   StyleSheet,
@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
-} from 'react-native';
+} from "react-native";
 
-import {ChipItemVariant} from '../types';
+import { ChipItemVariant } from "../types";
 
 interface ChipProps {
   variant?: ChipItemVariant;
@@ -23,7 +23,7 @@ interface ChipProps {
   trailingIconContainerStyle?: StyleProp<ViewStyle>;
 }
 
-const Chip: React.FC<ChipProps> = props => {
+const Chip: React.FC<ChipProps> = (props) => {
   const {
     variant,
     label,
@@ -39,11 +39,12 @@ const Chip: React.FC<ChipProps> = props => {
   const styles = makeStyles(variant);
 
   return (
-    <View pointerEvents={variant === 'disabled' ? 'none' : undefined}>
+    <View pointerEvents={variant === "disabled" ? "none" : undefined}>
       <TouchableOpacity onPress={onPress} style={[styles.container, style]}>
         {leadingIcon && (
           <View
-            style={[styles.leadingIconContainer, leadingIconContainerStyle]}>
+            style={[styles.leadingIconContainer, leadingIconContainerStyle]}
+          >
             {leadingIcon()}
           </View>
         )}
@@ -52,7 +53,8 @@ const Chip: React.FC<ChipProps> = props => {
 
         {trailingIcon && (
           <View
-            style={[styles.trailingIconContainer, trailingIconContainerStyle]}>
+            style={[styles.trailingIconContainer, trailingIconContainerStyle]}
+          >
             {trailingIcon()}
           </View>
         )}
@@ -64,19 +66,19 @@ const Chip: React.FC<ChipProps> = props => {
 const makeStyles = (variant: ChipItemVariant | undefined) =>
   StyleSheet.create({
     container: {
-      flexDirection: 'row',
+      flexDirection: "row",
       padding: 10,
       borderRadius: 10,
-      backgroundColor: variant === 'outlined' ? 'white' : '#9bedff',
-      overflow: 'hidden',
-      alignItems: 'center',
-      borderWidth: variant === 'outlined' ? 2 : 0,
-      borderColor: variant === 'outlined' ? '#87CEEB' : undefined,
-      opacity: variant === 'disabled' ? 0.5 : 1,
+      backgroundColor: variant === "outlined" ? "white" : "#9bedff",
+      overflow: "hidden",
+      alignItems: "center",
+      borderWidth: variant === "outlined" ? 2 : 0,
+      borderColor: variant === "outlined" ? "#87CEEB" : undefined,
+      opacity: variant === "disabled" ? 0.5 : 1,
     },
     labelText: {
-      color: '#442C2E',
-      fontWeight: '500',
+      color: "#442C2E",
+      fontWeight: "500",
       fontSize: 14,
     },
     leadingIconContainer: {
