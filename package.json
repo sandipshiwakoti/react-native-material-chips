@@ -1,0 +1,39 @@
+{
+  "name": "react-native-material-chips",
+  "version": "1.0.0",
+  "description": "🔥Easily implement versatile and customizable chips inspired from material design🔥",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "chip",
+    "chips",
+    "react-native-chips",
+    "material",
+    "material-chip",
+    "material-chips",
+    "filter-chip",
+    "filter-chips",
+    "input-chip",
+    "input-chips",
+    "react-native-filter-chips",
+    "react-native-input-chips"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandipshiwakoti/react-native-material-chips.git"
+  },
+  "author": "Sandip Shiwakoti <codewithshiwakoti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandipshiwakoti/react-native-material-chips/issues"
+  },
+  "homepage": "https://github.com/sandipshiwakoti/react-native-material-chips#readme",
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-native": "0.72.5",
+    "react-native-svg": "14.1.0"
+  }
+}
