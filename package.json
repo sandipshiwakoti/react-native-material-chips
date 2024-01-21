@@ -1,6 +1,6 @@
 {
   "name": "react-native-material-chips",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "🔥Easily implement versatile and customizable chips inspired from material design🔥",
   "main": "index.ts",
   "scripts": {
